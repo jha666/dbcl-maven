@@ -40,7 +40,7 @@ public class CleanMojo
 			_manager.removetWar(pathElement);
 		} 
 		else if ("jar".equalsIgnoreCase(packaging)) {
-			_manager.deletePathElement(pathElement);
+			_manager.deletePathElement(pathElement, null);
 		} else {
 			getLog().warn("Dbcl_clean: ignoring " + pathElement);
 		}
