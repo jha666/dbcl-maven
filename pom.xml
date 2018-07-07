@@ -36,17 +36,17 @@
       <artifactId>plexus-utils</artifactId>
       <version>3.0.8</version>
     </dependency>
-    <dependency>
-      <groupId>se.independent</groupId>
-      <artifactId>dbcl-manager</artifactId>
-      <version>PA2</version>
-    </dependency>
      
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.8.2</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>se.independent</groupId>
+    	<artifactId>dbcl</artifactId>
+    	<version>PA3</version>
     </dependency>
   </dependencies>
 
@@ -75,42 +75,6 @@
           </execution>
         </executions>
       </plugin>
-
-          <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.1.0</version>
-        <executions>
-          <execution>
-            <id>copy-dependencies</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-            <artifactItems>
-                 <artifactItem>
-                   <groupId>se.independent</groupId>
-                   <artifactId>dbcl_manager</artifactId>
-                   <version>0.0.2</version>
-                   <type>jar</type>
-                   <overWrite>true</overWrite>
-                   <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                   <destFileName>optional-new-name.jar</destFileName>
-                   <includes>**/*.class,**/*.sql</includes>
-                   <excludes>**/*test.class</excludes>
-                 </artifactItem>
-               </artifactItems>
-              <outputDirectory>${project.build.directory}/classes</outputDirectory>
-              <overWriteReleases>false</overWriteReleases>
-              <overWriteSnapshots>false</overWriteSnapshots>
-              <overWriteIfNewer>true</overWriteIfNewer>
-              <excludeTransitive>true</excludeTransitive>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
 
     </plugins>
   </build>
