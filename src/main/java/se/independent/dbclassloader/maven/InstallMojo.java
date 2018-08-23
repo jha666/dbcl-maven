@@ -9,8 +9,6 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
-import se.independent.dbclassloader.DbClassLoaderManager;
-
 /**
  * Goal which installs the artifact into a DbCL database
  */

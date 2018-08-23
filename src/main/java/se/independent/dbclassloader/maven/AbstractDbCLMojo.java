@@ -35,18 +35,20 @@ public abstract class AbstractDbCLMojo extends AbstractMojo {
 	    @Parameter( property = "driverURL", defaultValue = "jar:file:/c:/Users/jha/postgresql-42.2.2.jar!/" , required = true)
 	    private String driverURL;
 
+	    @Parameter( property = "driverClass", defaultValue = "org.postgresql.Driver" , required = true)
+	    private String driverClass;
+
 
 	    protected void loadDriver() throws MojoExecutionException {
 	        try {
-	        	getLog().info("- execute() driverURL=" + driverURL);
+	        	getLog().info("- execute() driverURL=" + driverURL + " [" + driverClass + "]");
 		        URL u = new URL(driverURL);
-				String classname = "org.postgresql.Driver";
 				URLClassLoader ucl = new URLClassLoader(new URL[] { u });
-				Driver d = (Driver) Class.forName(classname, true, ucl).newInstance();
+				Driver d = (Driver) Class.forName(driverClass, true, ucl).newInstance();
 				DriverManager.registerDriver(new DriverShim(d));
 				
 	        } catch (Exception x) {
-	        	throw new MojoExecutionException("loadDriver: " + driverURL , x);         	
+	        	throw new MojoExecutionException("loadDriver: " + driverURL + " [" + driverClass + "]" , x);         	
 	        }
 	    }
 	    
@@ -55,8 +57,6 @@ public abstract class AbstractDbCLMojo extends AbstractMojo {
 		        Properties p = new Properties();
 		        p.setProperty("user", dbUser);
 		        p.setProperty("password", dbPasswd);
-		        
-		        System.setProperty("dbcl.log", "dbcl-maven-plugin.log");
 		        
 		        _manager = new JDBCDbClassLoaderManager();
 		    	getLog().info("- execute() jdbcURL=" + jdbcURL);
