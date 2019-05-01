@@ -15,6 +15,48 @@ import se.independent.dbclassloader.MongoDBDbClassLoaderManager;
 import se.independent.dbclassloader.Neo4jDbClassLoaderManager;
 import se.independent.dbclassloader.SQLiteDbClassLoaderManager;
 
+/*
+           <plugin>
+		        <groupId>se.independent</groupId>
+		        <artifactId>dbcl-maven-plugin</artifactId>
+		        <version>0.0.2</version>
+		        <dependencies>
+		        	<dependency>
+					    <groupId>redis.clients</groupId>
+					    <artifactId>jedis</artifactId>
+					    <version>2.9.0</version>
+					</dependency>
+					<dependency>
+    					<groupId>org.xerial</groupId>
+    					<artifactId>sqlite-jdbc</artifactId>
+    					<version>3.27.2</version>
+					</dependency>
+				</dependencies>
+                <configuration>
+                	<!--  -->
+            		<jdbcURL>jdbc:sqlite:C:/Users/jha/dbcl-sqlite.db</jdbcURL>
+           			<driverURL>jar:file:/c:/Users/jha/sqlite-jdbc-3.27.2.1.jar!/</driverURL>
+           			<driverClass>org.sqlite.JDBC</driverClass>
+           			<!--  -->
+           			<!--  
+            		<jdbcURL>redis://192.168.1.36:6379/0</jdbcURL>
+           			<driverURL>jar:file:/c:/Users/jha/jedis-2.9.0.jar!/</driverURL>
+           			<driverClass>redis.clients.jedis.BinaryJedis</driverClass>
+           			-->
+                    <dbUser>DBCLASSLOAD</dbUser>
+                    <dbPasswd>Tr1ss</dbPasswd>
+                </configuration>
+		        <executions>
+		          <execution>
+		            <phase>install</phase>
+		            <goals>
+		              <goal>dbcl_install</goal>
+		            </goals>
+		            </execution>
+		        </executions>
+      </plugin>
+
+ */
 public abstract class AbstractDbCLMojo extends AbstractMojo {
 	
 		protected DbClassLoaderManager _manager;
