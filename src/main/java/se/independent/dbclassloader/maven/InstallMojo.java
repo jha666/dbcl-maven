@@ -40,7 +40,7 @@ public class InstallMojo
         	throw new MojoExecutionException( "project.build.directory does not exist " );
         }
         
-        loadDriver();
+        //loadDriver();
         
         connect();
         

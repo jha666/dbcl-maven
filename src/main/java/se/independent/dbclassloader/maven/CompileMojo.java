@@ -37,9 +37,7 @@ public class CompileMojo
         if ( !f.exists() || !f.isDirectory() ) {
         	throw new MojoExecutionException( outputDirectory + " does not exist " );
         }
-               
-        loadDriver();
-        
+                       
         connect();
         
        try {

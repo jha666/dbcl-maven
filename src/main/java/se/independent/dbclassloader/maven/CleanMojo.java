@@ -25,14 +25,11 @@ public class CleanMojo
     public void execute() throws MojoExecutionException {
     	getLog().debug("> execute()");
     	 
-        loadDriver();
-        
         connect();
 
         try {
         getLog().info("- execute() path_element=" + pathElement);
 		if ("war".equalsIgnoreCase(packaging)) {
-			//_manager.removeWar(pathElement);
 			_manager.removetWar(pathElement);
 		} 
 		else if ("jar".equalsIgnoreCase(packaging)) {
